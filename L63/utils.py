@@ -52,7 +52,6 @@ def extract_and_reset_grads(model):
         if not (param.grad is None):
             grads.append(param.grad.reshape(-1).detach().clone())
     grads = torch.cat(grads)
-    # reset params and gradients of EGA ST
     model.zero_grad()
     return grads
 
